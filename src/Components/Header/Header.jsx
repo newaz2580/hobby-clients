@@ -1,10 +1,10 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 
 const Header = () => {
     const {user,logoutUser}=use(AuthContext)
-    console.log(user)
+   
     const handleLogout=()=>{
         logoutUser()
         .then(result=>{
@@ -34,11 +34,11 @@ const Header = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Hobby</a>
+    <a className="btn btn-ghost text-xl">HobbyHub</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
+      <NavLink to='/'><li>Home</li></NavLink>
       <li>
         <details>
           <summary>Parent</summary>
@@ -48,8 +48,8 @@ const Header = () => {
           </ul>
         </details>
       </li>
-      <li><a>All Groups</a></li>
-      <li><a>Create Group</a></li>
+
+      <NavLink to='/createGroup'><li>Create Group</li></NavLink>
       <li><a>My Groups</a></li>
       <li><a>All Groups</a></li>
 

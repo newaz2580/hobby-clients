@@ -11,6 +11,8 @@ import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
 import SignUp from './Pages/SignUp.jsx';
 import ContextProvider from './Context/ContextProvider.jsx';
+import CreateGroup from './Pages/CreateGroup.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,9 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        Component:Home
+        Component:Home,
+        loader:()=>fetch('http://localhost:3000/hobby'),
+        hydrateFallbackElement:<p>Loading.....</p>
       },
       {
         path:'/login',
@@ -28,14 +32,20 @@ const router = createBrowserRouter([
       {
         path:'/signup',
         Component:SignUp
+      },
+      {
+        path:'/createGroup',
+        element:<CreateGroup></CreateGroup>
       }
     ]
   },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ContextProvider>
+       
+      <ContextProvider>
       <RouterProvider router={router} />
-    </ContextProvider>
+      </ContextProvider>
+    
   </StrictMode>,
 )
