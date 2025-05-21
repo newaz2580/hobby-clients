@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const MyGroup = () => {
   const initialData = useLoaderData();
@@ -18,14 +19,34 @@ const MyGroup = () => {
     }
   }, [hobbyData, user]);
   const handleDelete=(id)=>{
-   fetch(`http://localhost:3000/hobby/${id}`,{
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+     fetch(`http://localhost:3000/hobby/${id}`,{
     method:'DELETE'
    }).then(res=>res.json())
    .then(result=>{
+    
     const remainingData=hobbyData.filter(hobby=>hobby._id !==id)
     setHobbyData(remainingData)
     console.log(result)
+    Swal.fire({
+      title: "Deleted!",
+      text: "Hobby group has been deleted.",
+      icon: "success"
+    });
+    
    })
+  }
+});
+  
   }
   console.log(myHobbies);
   return (

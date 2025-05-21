@@ -6,9 +6,9 @@ import Footer from '../Components/Footer/Footer';
 const MainLayout = () => {
      const {state}=useNavigate()
     return (
-        <div>
+        <div className=''>
             <Header></Header>
-            <div className='min-h-[calc(100vh-120px)]'>
+            <div className='min-h-[calc(100vh-120px)] max-w-11/12 mx-auto'>
                 {state=='loading'?<Loading></Loading>:<Outlet/>} 
             </div>
             <Footer></Footer>

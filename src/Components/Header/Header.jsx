@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import logo from '../../assets/Logo.jpeg'
+import { toast } from 'react-toastify';
 
 const Header = () => {
     const {user,logoutUser}=use(AuthContext)
@@ -11,13 +12,14 @@ const Header = () => {
         logoutUser()
         .then(result=>{
             console.log(result)
-            navigate("/")
+            toast.success('Signout successful')
+            navigate("/login")
         }).catch(error=>{
             console.log(error)
         })
     }
     return (
-        <div className="navbar bg-base-100 shadow-sm sticky top-0 right-0 left-0 z-30">
+        <div className="navbar bg-base-100 shadow-sm sticky top-0 right-0 left-0 z-30 px-9 bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white rounded-xl">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

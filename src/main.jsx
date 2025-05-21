@@ -19,6 +19,7 @@ import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import Update from './Pages/Update.jsx';
 import { ToastContainer } from 'react-toastify';
+import Loading from './Pages/Loading.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,25 +50,25 @@ const router = createBrowserRouter([
         path:'/hobbyDetails/:id',
         loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
         element:<HobbyDetails></HobbyDetails>,
-         hydrateFallbackElement:<p>Loading.....</p>
+         hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/allGroup',
         loader:()=>fetch('http://localhost:3000/hobby'),
         element:<PrivateRoutes><AllGroup></AllGroup></PrivateRoutes>,
-        hydrateFallbackElement:<p>Loading.....</p>
+        hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/group',
         element:<PrivateRoutes><MyGroup></MyGroup></PrivateRoutes>,
         loader:()=>fetch('http://localhost:3000/hobby'),
-        hydrateFallbackElement:<p>Loading.....</p>
+        hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/update/:id',
         element:<Update></Update>,
         loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
-        hydrateFallbackElement:<p>Loading.....</p>
+        hydrateFallbackElement:<Loading></Loading>
 
       }
     ]
