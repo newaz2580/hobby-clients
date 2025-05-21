@@ -1,6 +1,9 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 const CreateGroup = () => {
+    const {user}=use(AuthContext)
+    console.log(user)
   const handleCreateGroup = (e) => {
     e.preventDefault()
     const form=e.target
@@ -103,6 +106,7 @@ const CreateGroup = () => {
               name="userName"
               className="input w-full"
               placeholder="User Name"
+              value={user?.displayName}
             />
           </fieldset>
         </div>
@@ -111,6 +115,7 @@ const CreateGroup = () => {
           <input
             type="text"
             name="email"
+            value={user?.email}
             className="input w-full"
             placeholder="User Email"
           />

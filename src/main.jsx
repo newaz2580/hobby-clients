@@ -12,12 +12,19 @@ import Login from './Pages/Login.jsx';
 import SignUp from './Pages/SignUp.jsx';
 import ContextProvider from './Context/ContextProvider.jsx';
 import CreateGroup from './Pages/CreateGroup.jsx';
+import HobbyDetails from './Pages/HobbyDetails.jsx';
+import AllGroup from './Pages/AllGroup.jsx';
+import MyGroup from './Pages/MyGroup.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
+import ErrorPage from './Pages/ErrorPage.jsx';
+import Update from './Pages/Update.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component:MainLayout,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         index:true,
@@ -36,6 +43,31 @@ const router = createBrowserRouter([
       {
         path:'/createGroup',
         element:<CreateGroup></CreateGroup>
+      },
+      {
+        path:'/hobbyDetails/:id',
+        loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
+        element:<HobbyDetails></HobbyDetails>,
+         hydrateFallbackElement:<p>Loading.....</p>
+      },
+      {
+        path:'/allGroup',
+        loader:()=>fetch('http://localhost:3000/hobby'),
+        element:<PrivateRoutes><AllGroup></AllGroup></PrivateRoutes>,
+        hydrateFallbackElement:<p>Loading.....</p>
+      },
+      {
+        path:'/group',
+        element:<PrivateRoutes><MyGroup></MyGroup></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/hobby'),
+        hydrateFallbackElement:<p>Loading.....</p>
+      },
+      {
+        path:'/update/:id',
+        element:<Update></Update>,
+        loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
+        hydrateFallbackElement:<p>Loading.....</p>
+
       }
     ]
   },

@@ -1,9 +1,11 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser,updateUser } = use(AuthContext);
+  const navigate = useNavigate();
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,10 +13,26 @@ const SignUp = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
+    
+    
+    //  if (password.length < 6) {
+    //   return toast.error("Password must be at least 6 characters");
+    // }
+    // if (!/[A-Z]/.test(password)) {
+    //   return toast.error("Password must contain at least one uppercase letter");
+    // }
+    // if (!/[a-z]/.test(password)) {
+    //   return toast.error("Password must contain at least one lowercase letter");
+    // }
+
     createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            toast.success("SignUp successful");
+            navigate("/");
+          })
+          .catch((error) => toast.error(error.message))
       })
       .catch((error) => {
         console.log(error);

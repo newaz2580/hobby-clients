@@ -1,20 +1,31 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use} from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
   const { loginUser,signWithGoogle } = use(AuthContext);
+  const location=useLocation()
+  const navigate=useNavigate()
+
+  
   const handleLogin = (e) => {
     e.preventDefault();
+   
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+   
+    
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(location.state || "/");
+
       })
       .catch((error) => {
         console.log(error);
+        
+      }) .finally(() => {
+       
       });
   };
 

@@ -1,14 +1,16 @@
 import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 
 const Header = () => {
     const {user,logoutUser}=use(AuthContext)
-   
-    const handleLogout=()=>{
+    const navigate=useNavigate()
+    
+    const handleSignOut=()=>{
         logoutUser()
         .then(result=>{
             console.log(result)
+            navigate("/")
         }).catch(error=>{
             console.log(error)
         })
@@ -37,39 +39,46 @@ const Header = () => {
     <a className="btn btn-ghost text-xl">HobbyHub</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 space-x-5">
       <NavLink to='/'><li>Home</li></NavLink>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-
+      <NavLink to='/allGroup'><li>All Groups</li></NavLink>
       <NavLink to='/createGroup'><li>Create Group</li></NavLink>
-      <li><a>My Groups</a></li>
-      <li><a>All Groups</a></li>
+      <NavLink to='/group'><li>My Groups</li></NavLink>
 
     </ul>
   </div>
-  <div className="navbar-end">
-    {
-        user ? (
-            <>
-             <span>{user.email}</span>
-             <Link onClick={handleLogout} className='btn'>LogOut</Link>
-            </>
-        ):
-        (
-            <Link className='btn' to='/login'>Login</Link>
-           
-        )
-    }
-    
-  </div>
+  <div className="navbar-end gap-3">
+        {user && (
+          <div className="relative group avatar">
+            <div className="w-10 rounded-full ring ring-yellow-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
+              <img src={user.photoURL} alt={user.displayName || "user"} />
+            </div>
+
+            <div className="absolute top-1 right-full mr-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="relative bg-pink-950 text-white text-xl px-4 py-2 rounded-4xl shadow-lg whitespace-nowrap">
+                {user.displayName}
+
+                <div className="absolute top-2 right-[-6px] w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-black"></div>
+              </div>
+            </div>
+          </div>
+        )}
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            className="btn btn-primary lg:px-8 px-4 text-2xl lg:py-7 py-3 rounded-4xl"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="btn btn-primary px-4 lg:px-10 text-2xl py-3 lg:py-7 rounded-4xl"
+          >
+            Login
+          </Link>
+        )}
+      </div>
 </div>
     );
 };

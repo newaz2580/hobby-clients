@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const HobbyCard = ({ hobby }) => {
-  console.log(hobby);
+
   return (
      <div className="card  bg-base-100 w-full shadow-sm border">
       <figure>
@@ -10,11 +11,11 @@ const HobbyCard = ({ hobby }) => {
       <div className=" flex justify-between">
         <div className="flex flex-col justify-start">
           <h2 className="card-title">{hobby.name}</h2>
-          <p>{hobby.descripton}</p>
+          <p>{hobby.description}</p>
           <p>{hobby.members}</p>
         </div>
         <div className="card-actions flex flex-col">
-          <button className="btn btn-primary">Watch</button>
+          <Link to={`/hobbyDetails/${hobby._id}`}><button className="btn btn-primary">Details</button></Link>
          
 
         </div>
