@@ -56,7 +56,7 @@ const StarRating = ({ rating }) => {
 
 const Testimonials = () => (
   <section className="bg-gray-100 py-12">
-    <div className="max-w-6xl mx-auto px-4 text-center">
+    <div className="w-full mx-auto px-4 text-center">
       <h2 className="text-4xl font-extrabold text-gray-800 mb-3">
         Hear From Our <span className="text-blue-600">Happy Members</span>
       </h2>
