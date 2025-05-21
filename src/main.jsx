@@ -18,6 +18,7 @@ import MyGroup from './Pages/MyGroup.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import Update from './Pages/Update.jsx';
+import { ToastContainer } from 'react-toastify';
 
 
 const router = createBrowserRouter([
@@ -77,6 +78,7 @@ createRoot(document.getElementById('root')).render(
        
       <ContextProvider>
       <RouterProvider router={router} />
+      <ToastContainer/>
       </ContextProvider>
     
   </StrictMode>,

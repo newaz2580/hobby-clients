@@ -58,8 +58,7 @@ const AllGroup = () => {
 
 
                 <th>
-                  <button className="btn btn-xs">V</button>
-                  <button className="btn btn-xs">E</button>
+                  
                   <Link to={`/hobbyDetails/${user._id}`}><button className="btn btn-xs">See More</button></Link>
 
                 </th>

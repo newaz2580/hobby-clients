@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import logo from '../../assets/Logo.jpeg'
 
 const Header = () => {
     const {user,logoutUser}=use(AuthContext)
@@ -16,7 +17,7 @@ const Header = () => {
         })
     }
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm sticky top-0 right-0 left-0 z-30">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,7 +37,7 @@ const Header = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">HobbyHub</a>
+    <a className="btn btn-ghost text-xl"><img className='h-14' src={logo} alt="" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-5">

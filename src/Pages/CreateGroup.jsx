@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const CreateGroup = () => {
     const {user}=use(AuthContext)
@@ -19,6 +20,7 @@ const CreateGroup = () => {
     }).then(res=>res.json())
     .then(result=>{
         console.log(result)
+        toast.success("Created group successfully")
     })
   };
   return (

@@ -1,6 +1,7 @@
  import React, { use } from "react";
         import { AuthContext } from "../Context/AuthContext";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 const Update = () => {
 const {user}=use(AuthContext)
 const updateData=useLoaderData()
@@ -21,6 +22,7 @@ e.preventDefault()
     }).then(res=>res.json())
     .then(result=>{
         console.log(result)
+        toast.success("Updated successfully")
     })
 }
         
