@@ -3,6 +3,7 @@ import Banner from './Banner';
 import { useLoaderData } from 'react-router';
 import HobbyCard from './HobbyCard';
 import Faq from './Faq';
+import Testimonials from './Testimonials';
 
 const Home = () => {
     const hobbyData=useLoaderData()
@@ -21,6 +22,7 @@ const Home = () => {
                 displayData.map(hobby=><HobbyCard key={hobby._id} hobby={hobby}></HobbyCard>)
             }
             </div>
+            <Testimonials></Testimonials>
             <Faq></Faq>
         </div>
     );
