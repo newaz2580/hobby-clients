@@ -1,10 +1,11 @@
-import React, { use} from "react";
+import React, { use, useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser,signWithGoogle } = use(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
   const location=useLocation()
   const navigate=useNavigate()
 
@@ -15,7 +16,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
    
-    
+    setIsLoading(true)
     loginUser(email, password)
       .then((result) => {
         toast.success(result.user);
@@ -24,10 +25,11 @@ const Login = () => {
 
       })
       .catch((error) => {
-        toast.error(error);
+        toast.error(error.message);
+        setIsLoading(false)
         
       }) .finally(() => {
-       
+       setIsLoading(false)
       });
   };
 
@@ -36,32 +38,64 @@ const Login = () => {
   .then(result=>{
     toast.success(result)
   }).catch(error=>{
-    toast.error(error)
+    toast.error(error.message)
   })
   }
   return (
-    <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 mx-auto w-full max-w-xl shrink-0 shadow-2xl mt-5">
       <div className="card-body">
-        <h2 className="text-center text-4xl">Please Login</h2>
+        <h2 className="text-center text-4xl text-indigo-700 font-extrabold">Please Login</h2>
         <form onSubmit={handleLogin} className="fieldset">
           <label className="label">Email</label>
           <input
             type="email"
             name="email"
-            className="input"
+            className="input w-full"
             placeholder="Email"
+            required
           />
           <label className="label">Password</label>
           <input
             type="password"
             name="password"
-            className="input"
+            className="input w-full"
             placeholder="Password"
+            required
           />
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full h-12 bg-cyan-900 text-white text-lg font-semibold rounded-lg hover:bg-cyan-800 transition-colors flex items-center justify-center gap-2"
+          >
+            {isLoading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  />
+                </svg>
+                Logging in...
+              </>
+            ) : (
+              "Login"
+            )}
+          </button>
           <button onClick={handleGoogle} className="btn bg-white text-black border-[#e5e5e5]">
             <svg
               aria-label="Google logo"

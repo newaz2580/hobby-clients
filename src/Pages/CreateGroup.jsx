@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaPlusCircle } from "react-icons/fa";
+import { Tooltip } from 'react-tooltip'
 
 const CreateGroup = () => {
   const { user } = useContext(AuthContext);
@@ -36,6 +37,7 @@ const CreateGroup = () => {
 
   return (
     <div className="pb-10 px-4 max-w-5xl mx-auto">
+  
       <div className="text-center space-y-4 mb-10">
         <h1 className="text-5xl font-bold text-green-700">Start a New Hobby Group</h1>
         <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -174,11 +176,22 @@ const CreateGroup = () => {
               </>
             ) : (
               <>
-                <FaPlusCircle />
+                
+                <p className="tooltip flex items-center" data-tip="Create New Hobby Group">
+               <FaPlusCircle />
                 Create Group
+                </p>
               </>
             )}
           </button>
+          <div className="tooltip">
+  <div className="tooltip-content">
+    <div className="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">Wow!</div>
+  </div>
+  <button className="btn">Hover me</button>
+</div>
+
+
         </div>
       </form>
     </div>

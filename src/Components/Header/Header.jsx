@@ -7,19 +7,18 @@ import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 
 const Header = () => {
-  const { user, logoutUser,setMode,mode } = React.useContext(AuthContext);
+  const { user, logoutUser, setMode, mode } = React.useContext(AuthContext);
   const navigate = useNavigate();
-  
 
   const handleSignOut = () => {
     logoutUser()
       .then(() => {
         toast.success("Signout successful");
 
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
         toast.error("Signout failed");
       });
   };
@@ -48,32 +47,10 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/allGroup">All Groups</NavLink>
-            </li>
-            <li>
-              <NavLink to="/createGroup">Create Group</NavLink>
-            </li>
-            <li>
-              <NavLink to="/group">My Groups</NavLink>
-            </li>
-          </ul>
-        </div>
-        <Link to="/" className="btn text-green-700 font-extrabold text-2xl">
-          HobbyHub
-        </Link>
-        <div onClick={()=>setMode(!mode)}>
-          {
-            mode ? <MdDarkMode size={25} className="text-black" />:<CiLight size={25} />
-          }
-        </div>
-      </div>
-
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-5">
+            <p
+              className="tooltip flex items-center"
+              data-tip="Home section"
+            >
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -82,6 +59,11 @@ const Header = () => {
           >
             <li>Home</li>
           </NavLink>
+          </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Created All hobby Group here"
+            >
           <NavLink
             to="/allGroup"
             className={({ isActive }) =>
@@ -90,6 +72,11 @@ const Header = () => {
           >
             <li>All Groups</li>
           </NavLink>
+          </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Create new hobby Group by User"
+            >
           <NavLink
             to="/createGroup"
             className={({ isActive }) =>
@@ -98,14 +85,93 @@ const Header = () => {
           >
             <li>Create Group</li>
           </NavLink>
+          
+       </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Created Group by User"
+            >
+              <NavLink
+                to="/group"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <li>My Groups</li>
+              </NavLink>
+            </p>
+          </ul>
+        </div>
+        <Link
+          to="/"
+          className=" text-shadow-indigo-700 font-extrabold text-2xl hidden md:flex"
+        >
+          HobbyHub
+        </Link>
+        <div onClick={() => setMode(!mode)}>
+          {mode ? (
+            <MdDarkMode size={25} className="text-black" />
+          ) : (
+            <CiLight size={25} />
+          )}
+        </div>
+      </div>
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 space-x-5">
+          <p
+              className="tooltip flex items-center"
+              data-tip="Home section"
+            >
           <NavLink
-            to="/group"
+            to="/"
             className={({ isActive }) =>
               isActive ? "font-bold underline" : ""
             }
           >
-            <li>My Groups</li>
+            <li>Home</li>
           </NavLink>
+          </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Created All hobby Group here"
+            >
+          <NavLink
+            to="/allGroup"
+            className={({ isActive }) =>
+              isActive ? "font-bold underline" : ""
+            }
+          >
+            <li>All Groups</li>
+          </NavLink>
+          </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Create new hobby Group by User"
+            >
+          <NavLink
+            to="/createGroup"
+            className={({ isActive }) =>
+              isActive ? "font-bold underline" : ""
+            }
+          >
+            <li>Create Group</li>
+          </NavLink>
+          
+       </p>
+          <p
+              className="tooltip flex items-center"
+              data-tip="Created Group by User"
+            >
+              <NavLink
+                to="/group"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <li>My Groups</li>
+              </NavLink>
+            </p>
         </ul>
       </div>
 

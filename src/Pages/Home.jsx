@@ -10,6 +10,7 @@ const Home = () => {
     const [displayData,setDisplayData]=useState([])
 
     useEffect(()=>{
+ 
     setDisplayData(hobbyData.slice(0,6))
     },[hobbyData])
 

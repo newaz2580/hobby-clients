@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path:'/hobbyDetails/:id',
         loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
-        element:<HobbyDetails></HobbyDetails>,
+        element:<PrivateRoutes><HobbyDetails></HobbyDetails></PrivateRoutes>,
          hydrateFallbackElement:<Loading></Loading>
       },
       {
