@@ -1,4 +1,7 @@
 import React from "react";
+import { FaListUl, FaRegFileAlt, FaUserCircle } from "react-icons/fa";
+import { IoMdPeople } from "react-icons/io";
+import { MdDateRange, MdEmail, MdLocationOn } from "react-icons/md";
 import { useLoaderData } from "react-router";
 
 const HobbyDetails = () => {
@@ -16,55 +19,56 @@ const HobbyDetails = () => {
   } = hobbyData;
 
   return (
-    // <div className="py-5 bg-gradient-to-r from-blue-200 to-purple-200 p-6 text-black rounded-xl shadow-xl">
-    //     <h2 className="text-center text-4xl font-bold">Hobby Details</h2>
-    //   <div className="border ">
-    //     <img className="w-80 mx-auto" src={image} alt="" />
-    //     <div className="flex justify-around">
-    //       <div className="space-y-3">
-    //         <h2 className="text-3xl text-black"><span className="font-bold">Name</span> :{name}</h2>
-    //         <h2>Date:{date}</h2>
-    //         <p>{description}</p>
-    //         <p>{email}</p>
-    //       </div>
-    //       <div className="space-y-3">
-    //         <p>{location}</p>
-    //         <p>{members}</p>
-    //         <p>{userName}</p>
-    //         <p>{category}</p>
-    //       </div>
-    //     </div>
-
-    //    <div className="text-center mb-5 mt-2">
-    //
-    //    </div>
-    //   </div>
-    // </div>
+    
     <>
-      <div className="flex flex-col max-w-3xl mx-auto p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
-        <div>
-          <img
-            src={image}
-            alt=""
-            className="object-cover w-full mb-4 h-40 sm:h-80 dark:bg-gray-500"
-          />
-          <div className="flex justify-between">
-            <div className="space-y-2">
-              <h2 className="mb-1 text-xl font-semibold">{name}</h2>
-              <p className="text-sm dark:text-gray-600">{category}</p>
-              <h2 className="mb-1 text-xl font-semibold">{description}</h2>
-              <p className="text-sm dark:text-gray-600">{members}</p>
-            </div>
-            <div>
-              <h2 className="mb-1 text-xl font-semibold">{date}</h2>
-              <p className="text-sm dark:text-gray-600">{location}</p>
-              <h2 className="mb-1 text-xl font-semibold">{userName}</h2>
-              <p className="text-sm dark:text-gray-600">Email:{email}</p>
+     <div className="max-w-3xl mx-auto rounded-xl py-10 mt-5 overflow-hidden shadow-lg bg-gradient-to-r from-indigo-100 to-purple-100 transition-all hover:shadow-2xl">
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-60 object-cover"
+      />
+      <div className="p-6 space-y-4">
+        <div className="flex flex-col md:flex-row justify-between gap-6 items-center">
+       
+          <div className="space-y-3 flex-1 text-gray-800">
+            <h2 className="flex items-center gap-2 text-2xl font-bold text-indigo-700">
+              <FaUserCircle className="text-indigo-500" /> {name}
+            </h2>
+            <p className="flex items-center gap-2 text-sm text-gray-700">
+              <FaListUl className="text-indigo-500" /> {category}
+            </p>
+            <p className="flex items-center gap-2 text-gray-700">
+              <FaRegFileAlt className="text-indigo-500" /> {description}
+            </p>
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <IoMdPeople className="text-indigo-500" /> {members} Members
             </div>
           </div>
-          <button className="btn w-full btn-secondary">Join Group</button>
+
+        
+          <div className="space-y-3 justify-start md:text-left flex-1 text-gray-800">
+            <p className="flex items-center  justify-start gap-2 text-lg font-semibold text-purple-700">
+              <MdDateRange className="text-purple-500" /> {date}
+            </p>
+            <p className="flex items-center  justify-start gap-2 text-sm text-gray-700">
+              <MdLocationOn className="text-purple-500" /> {location}
+            </p>
+            <p className="flex items-center  justify-start gap-2 text-md font-medium text-gray-800">
+              <FaUserCircle className="text-purple-500" /> {userName}
+            </p>
+            <div className="flex items-center  justify-start gap-2 text-sm text-gray-700">
+              <MdEmail className="text-purple-500" /> {email}
+            </div>
+          </div>
         </div>
+
+    
+        <button className="w-full py-3 mt-3 text-white font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all">
+          Join Group
+        </button>
       </div>
+    </div>
+
     </>
   );
 };
