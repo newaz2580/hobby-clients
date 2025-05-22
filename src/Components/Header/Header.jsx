@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
+import Typewriters from "../../Pages/Typewriters";
 
 const Header = () => {
   const { user, logoutUser, setMode, mode } = React.useContext(AuthContext);
@@ -108,13 +109,15 @@ const Header = () => {
         >
           HobbyHub
         </Link>
-        <div onClick={() => setMode(!mode)}>
+        
+        <div className="pl-2" onClick={() => setMode(!mode)}>
           {mode ? (
-            <MdDarkMode size={25} className="text-black" />
+            <MdDarkMode size={30} className="text-black" />
           ) : (
-            <CiLight size={25} />
+            <CiLight size={30} />
           )}
         </div>
+        <div className="px-4"><Typewriters></Typewriters></div>
       </div>
 
       <div className="navbar-center hidden lg:flex">

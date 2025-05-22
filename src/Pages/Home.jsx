@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 import HobbyCard from './HobbyCard';
 import Faq from './Faq';
 import Testimonials from './Testimonials';
+import Typewriters from './Typewriters';
 
 const Home = () => {
     const hobbyData=useLoaderData()
@@ -16,6 +17,7 @@ const Home = () => {
 
     return (
         <div className='bg-gradient-to-r from-blue-100 to-purple-200 p-6 text-black rounded-xl'>
+        
             <h2 className='text-center text-4xl py-8 font-extrabold'>Hobby Group Slider</h2>
             <Banner></Banner>
             <h2 className="text-4xl font-bold text-center text-green-600">Upcoming Hobby Event</h2>
