@@ -1,10 +1,10 @@
-import React, { use, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaPlusCircle } from "react-icons/fa";
 
 const CreateGroup = () => {
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
   const handleCreateGroup = (e) => {
@@ -22,13 +22,12 @@ const CreateGroup = () => {
       body: JSON.stringify(newHobby),
     })
       .then((res) => res.json())
-      .then((result) => {
-        toast.success("🎉 Group created successfully!");
+      .then(() => {
+        toast.success("Group created successfully!");
         form.reset();
       })
       .catch((err) => {
-        toast.error("❌ Failed to create group. Try again.");
-        console.error(err);
+        toast.error(err.message);
       })
       .finally(() => {
         setLoading(false);
@@ -50,33 +49,115 @@ const CreateGroup = () => {
         className="bg-white shadow-xl rounded-xl p-6 space-y-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Input label="Group Name" name="name" placeholder="e.g., Nature Explorers" required />
-          <Select
-            label="Hobby Category"
-            name="category"
-            options={[
-              "Drawing & Painting",
-              "Photography",
-              "Video Gaming",
-              "Fishing",
-              "Running",
-              "Cooking",
-              "Reading",
-              "Writing",
-              "Arts",
-              "Riding",
-            ]}
-            required
-          />
-          <Input label="Short Description" name="description" placeholder="Describe your group..." required />
-          <Input label="Meeting Location" name="location" placeholder="Where will you meet?" required />
-          <Input label="Max Members" name="members" type="number" placeholder="e.g., 20" required />
-          <Input label="Start Date" name="date" type="date" required />
-          <Input label="Group Image URL" name="image" placeholder="Paste an image URL" required />
-          <Input label="Your Name" name="userName" value={user?.displayName || ""} readOnly />
+          <div>
+            <label className="label text-gray-700 font-medium">Group Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="e.g., Nature Explorers"
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Hobby Category</label>
+            <select name="category" required className="select select-bordered w-full">
+              {[
+                "Drawing & Painting",
+                "Photography",
+                "Video Gaming",
+                "Fishing",
+                "Running",
+                "Cooking",
+                "Reading",
+                "Writing",
+                "Arts",
+                "Riding",
+              ].map((opt, idx) => (
+                <option key={idx} value={opt.replace(/\s+/g, "")}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Short Description</label>
+            <input
+              type="text"
+              name="description"
+              placeholder="Describe your group..."
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Meeting Location</label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Where will you meet?"
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Max Members</label>
+            <input
+              type="number"
+              name="members"
+              placeholder="e.g., 20"
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Start Date</label>
+            <input
+              type="date"
+              name="date"
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Group Image URL</label>
+            <input
+              type="text"
+              name="image"
+              placeholder="Paste an image URL"
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          <div>
+            <label className="label text-gray-700 font-medium">Your Name</label>
+            <input
+              type="text"
+              name="userName"
+              defaultValue={user?.displayName || ""}
+              readOnly
+              className="input input-bordered w-full"
+            />
+          </div>
         </div>
 
-        <Input label="Your Email" name="email" value={user?.email || ""} readOnly />
+        <div>
+          <label className="label text-gray-700 font-medium">Your Email</label>
+          <input
+            type="email"
+            name="email"
+            defaultValue={user?.email || ""}
+            readOnly
+            className="input input-bordered w-full"
+          />
+        </div>
 
         <div className="flex justify-center mt-6">
           <button
@@ -103,35 +184,5 @@ const CreateGroup = () => {
     </div>
   );
 };
-
-// Reusable Input component
-const Input = ({ label, name, type = "text", placeholder, value, readOnly, required }) => (
-  <div>
-    <label className="label text-gray-700 font-medium">{label}</label>
-    <input
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      defaultValue={value}
-      readOnly={readOnly}
-      required={required}
-      className="input input-bordered w-full"
-    />
-  </div>
-);
-
-// Reusable Select component
-const Select = ({ label, name, options, required }) => (
-  <div>
-    <label className="label text-gray-700 font-medium">{label}</label>
-    <select name={name} required={required} className="select select-bordered w-full">
-      {options.map((opt, idx) => (
-        <option key={idx} value={opt.replace(/\s+/g, "")}>
-          {opt}
-        </option>
-      ))}
-    </select>
-  </div>
-);
 
 export default CreateGroup;

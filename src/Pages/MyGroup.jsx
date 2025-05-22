@@ -4,6 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const MyGroup = () => {
   const initialData = useLoaderData();
@@ -35,7 +36,7 @@ const MyGroup = () => {
           .then((result) => {
             const remainingData = hobbyData.filter((hobby) => hobby._id !== id);
             setHobbyData(remainingData);
-            console.log(result);
+            toast(result);
             Swal.fire({
               title: "Deleted!",
               text: "Hobby has been deleted.",
@@ -45,7 +46,7 @@ const MyGroup = () => {
       }
     });
   };
-  console.log(myHobbies);
+
   return (
     <div>
       <div className="shadow-2xl">

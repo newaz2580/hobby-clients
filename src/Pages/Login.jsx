@@ -18,13 +18,13 @@ const Login = () => {
     
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        toast.success(result.user);
         toast.success('Login Successful')
         navigate(location.state || "/");
 
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
         
       }) .finally(() => {
        
@@ -34,9 +34,9 @@ const Login = () => {
   const handleGoogle=()=>{
   signWithGoogle()
   .then(result=>{
-    console.log(result)
+    toast.success(result)
   }).catch(error=>{
-    console.log(error)
+    toast.error(error)
   })
   }
   return (

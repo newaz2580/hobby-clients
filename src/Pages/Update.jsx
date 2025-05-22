@@ -27,7 +27,7 @@ const Update = () => {
       .then((result) => {
         toast.success("✅ Group updated successfully!");
       })
-      .catch(() => toast.error("❌ Failed to update group"))
+      .catch(() => toast.error(" Failed to update group"))
       .finally(() => setLoading(false));
   };
 

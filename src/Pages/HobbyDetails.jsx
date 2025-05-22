@@ -3,8 +3,10 @@ import { FaListUl, FaRegFileAlt, FaUserCircle } from "react-icons/fa";
 import { IoMdPeople } from "react-icons/io";
 import { MdDateRange, MdEmail, MdLocationOn } from "react-icons/md";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 
 const HobbyDetails = () => {
+    const today = new Date().toISOString().slice(0, 10);
   const hobbyData = useLoaderData();
   const {
     name,
@@ -17,7 +19,14 @@ const HobbyDetails = () => {
     members,
     userName,
   } = hobbyData;
-
+  console.log(date>today)
+  const handleJoinGroup=()=>{
+    if(today < date){
+        toast.success('Join Group successfully')
+    }else{
+        toast.error('Date already passed')
+    }
+  }
   return (
     
     <>
@@ -63,7 +72,7 @@ const HobbyDetails = () => {
         </div>
 
     
-        <button className="w-full py-3 mt-3 text-white font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all">
+        <button onClick={handleJoinGroup} className="w-full py-3 mt-3 text-white font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all">
           Join Group
         </button>
       </div>

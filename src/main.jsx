@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/createGroup',
-        element:<CreateGroup></CreateGroup>
+        element:<PrivateRoutes><CreateGroup></CreateGroup></PrivateRoutes>
       },
       {
         path:'/hobbyDetails/:id',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path:'/allGroup',
         loader:()=>fetch('http://localhost:3000/hobby'),
-        element:<PrivateRoutes><AllGroup></AllGroup></PrivateRoutes>,
+        element:<AllGroup></AllGroup>,
         hydrateFallbackElement:<Loading></Loading>
       },
       {

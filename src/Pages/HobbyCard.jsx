@@ -6,7 +6,10 @@ import { Link } from "react-router";
 const HobbyCard = ({ hobby }) => {
 
   return (
-      <div className="card bg-base-100 w-full h-96 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition">
+      <>
+      
+      <div className="card bg-base-100 my-5  w-full h-96 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition">
+        
       <figure>
         <img className="w-full h-48 object-cover p-2 rounded-xl" src={hobby.image} alt={hobby.name} />
       </figure>
@@ -29,6 +32,7 @@ const HobbyCard = ({ hobby }) => {
         </Link>
       </div>
     </div>
+      </>
   );
 };
 
