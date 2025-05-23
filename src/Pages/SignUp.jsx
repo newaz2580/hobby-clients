@@ -44,7 +44,7 @@ const SignUp = () => {
 
  
   return (
-    <div className="card bg-base-100 mx-auto w-full max-w-xl shrink-0 shadow-2xl mt-5">
+    <div className="card bg-base-100 mx-auto w-full max-w-xl shrink-0 shadow-2xl mt-20">
       <div className="card-body">
         <h2 className="text-4xl text-center text-indigo-800 font-extrabold">Please registrar now</h2>
         <form onSubmit={handleSubmitForm} className="fieldset">

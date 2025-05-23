@@ -57,11 +57,10 @@ const MyGroup = () => {
             {/* head */}
             <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
               <tr className="text-xl">
-                <th>No</th>
+                <th className="hidden md:flex">No</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th className="hidden">Description</th>
                 <th>Location</th>
-
                 <th>Email</th>
                 <th>Members</th>
 
@@ -72,7 +71,7 @@ const MyGroup = () => {
             <tbody>
               {myHobbies.map((user, index) => (
                 <tr key={user._id} className="hover:shadow-xl">
-                  <th>{index + 1}</th>
+                  <th className="hidden md:flex">{index + 1}</th>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -93,7 +92,7 @@ const MyGroup = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="font-bold text-cyan-400">{user.description}</td>
+                  <td className="font-bold text-cyan-400 hidden md:flex">{user.description}</td>
                   <td className="text-blue-600 font-bold py-5">{user.location}</td>
 
                   <td className="font-bold py-4">{user.email}</td>

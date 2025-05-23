@@ -1,48 +1,47 @@
-import React from 'react';
-
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 const Banner = () => {
-    return (
-        <div className="carousel w-full pb-10">
-          
-  <div id="slide1" className="carousel-item relative w-full lg:h-[500px] bg-cover">
-    <img
-      src="https://i.ibb.co/DHRQtvb7/fishing.jpg"
-      className="w-full" />
-     
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide4" className="btn btn-circle">❮</a>
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide2" className="carousel-item relative w-full lg:h-[500px] bg-cover">
-    <img
-      src="https://i.ibb.co/svB9rjX3/travel.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide1" className="btn btn-circle">❮</a>
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide3" className="carousel-item relative w-full lg:h-[500px] bg-cover">
-    <img
-      src="https://i.ibb.co/CKKJmWb3/cooking-hobby.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide2" className="btn btn-circle">❮</a>
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide4" className="carousel-item relative w-full lg:h-[500px] bg-cover">
-    <img
-      src="https://i.ibb.co/pBL7mnNj/pexels-photo-102127-1.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide3" className="btn btn-circle">❮</a>
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
-    );
+  return (
+    <>
+      <h2 className="text-center py-5 font-bold text-4xl mt-15 text-orange-600 ">
+ 
+        Hobby Group Slider
+      </h2>
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        spaceBetween={20}
+        slidesPerView={1}
+        autoplay={{ delay: 2500 }}
+        pagination={{ clickable: true }}
+        loop={true}
+      >
+        <SwiperSlide>
+          <img
+            src="https://i.ibb.co/7JXzwQ9Q/fishing.webp"
+            alt="Slide 1"
+            className="w-full lg:h-[650px] object-fit rounded-lg"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://i.ibb.co/DgQWF3fr/travel.webp"
+            alt="Slide 2"
+            className="w-full lg:h-[650px] object-fit rounded-lg"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://i.ibb.co/k2Zh5nYD/cooking-hobby.webp"
+            alt="Slide 3"
+            className="w-full lg:h-[650px] object-fit rounded-lg"
+          />
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
 };
 
 export default Banner;

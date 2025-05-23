@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const Typewriters = () => {
   return (
     
-      <h1 className="text-xl md:text-2xl font-bold text-gray-900 text-center">
+      <h1 className="text-xl md:text-2xl font-bold text-gray-900 text-center hidden md:flex">
         I love{' '}
         <span className="text-orange-400">
           <Typewriter

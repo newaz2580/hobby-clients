@@ -7,7 +7,9 @@ const AllGroup = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      <h2 className="text-4xl font-bold text-center text-purple-700 mb-6">All Hobby Groups</h2>
+      <h2 className="text-4xl font-bold text-center text-purple-700 mb-6">
+        All Hobby Groups
+      </h2>
 
       <div className="overflow-x-auto shadow-2xl rounded-lg border border-purple-200">
         <table className="table table-zebra w-full">
@@ -38,15 +40,25 @@ const AllGroup = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold text-indigo-800">{user.name}</div>
-                      <div className="text-xs text-gray-500">{user.category}</div>
+                      <div className="font-bold text-indigo-800">
+                        {user.name}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {user.category}
+                      </div>
                     </div>
                   </div>
                 </td>
 
-                <td className="text-sm text-indigo-600 font-medium">{user.description}</td>
-                <td className="text-sm text-teal-700 font-medium">{user.location}</td>
-                <td className="text-center font-bold text-gray-800">{user.members}</td>
+                <td className="text-sm text-indigo-600 font-medium">
+                  {user.description}
+                </td>
+                <td className="text-sm text-teal-700 font-medium">
+                  {user.location}
+                </td>
+                <td className="text-center font-bold text-gray-800">
+                  {user.members}
+                </td>
                 <td className="text-green-700 font-medium">{user.date}</td>
 
                 <td>

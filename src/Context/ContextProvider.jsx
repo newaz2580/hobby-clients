@@ -44,6 +44,7 @@ const ContextProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+  
   const userInfo = {
     createUser,
     loginUser,
