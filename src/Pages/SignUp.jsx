@@ -16,15 +16,15 @@ const SignUp = () => {
     const password = form.password.value;
     
     
-    //  if (password.length < 6) {
-    //   return toast.error("Password must be at least 6 characters");
-    // }
-    // if (!/[A-Z]/.test(password)) {
-    //   return toast.error("Password must contain at least one uppercase letter");
-    // }
-    // if (!/[a-z]/.test(password)) {
-    //   return toast.error("Password must contain at least one lowercase letter");
-    // }
+     if (password.length < 6) {
+      return toast.error("Password must be at least 6 characters");
+    }
+    if (!/[A-Z]/.test(password)) {
+      return toast.error("Password must contain at least one uppercase letter");
+    }
+    if (!/[a-z]/.test(password)) {
+      return toast.error("Password must contain at least one lowercase letter");
+    }
     setIsLoading(true);
     createUser(email, password)
       .then(() => {

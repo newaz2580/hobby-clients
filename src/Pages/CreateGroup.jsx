@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import { FaPlusCircle } from "react-icons/fa";
-import { Tooltip } from 'react-tooltip'
+
 
 const CreateGroup = () => {
   const { user } = useContext(AuthContext);
@@ -40,7 +40,7 @@ const CreateGroup = () => {
   
       <div className="text-center space-y-4 mb-10">
         <h1 className="text-5xl font-bold text-green-700">Start a New Hobby Group</h1>
-        <p className="text text-gray-600 text-lg max-w-3xl mx-auto">
+        <p className="text text-gray-600 text-lg max-w-3xl mx-auto dark:text-white">
           Share your passion with like-minded people! Fill in the details below to
           create your own hobby group and invite others to join you.
         </p>
@@ -76,6 +76,7 @@ const CreateGroup = () => {
                 "Writing",
                 "Arts",
                 "Riding",
+                "Gardening"
               ].map((opt, idx) => (
                 <option key={idx} value={opt.replace(/\s+/g, "")}>
                   {opt}

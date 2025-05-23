@@ -49,7 +49,8 @@ const MyGroup = () => {
 
   return (
     <div>
-      <div className="shadow-2xl">
+      
+       {myHobbies.length > 0 ? <><div className="shadow-2xl">
         
           <h2 className="text-4xl font-bold text-center text-purple-700 mb-6 mt-3">My Hobby Groups</h2>
         <div className="overflow-x-auto">
@@ -120,7 +121,14 @@ const MyGroup = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </div></>:
+       <>
+       <div className="text-center mt-10">
+        <h1 className="text-4xl dark:text-white my-4">No Group created yet </h1>
+         <Link to='/createGroup'><button className="btn btn-primary">Go Create Group</button></Link>
+       </div>
+      </>}
+      
     </div>
   );
 };
