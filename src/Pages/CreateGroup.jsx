@@ -40,7 +40,7 @@ const CreateGroup = () => {
   
       <div className="text-center space-y-4 mb-10">
         <h1 className="text-5xl font-bold text-green-700">Start a New Hobby Group</h1>
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+        <p className="text text-gray-600 text-lg max-w-3xl mx-auto">
           Share your passion with like-minded people! Fill in the details below to
           create your own hobby group and invite others to join you.
         </p>
@@ -48,7 +48,7 @@ const CreateGroup = () => {
 
       <form
         onSubmit={handleCreateGroup}
-        className="bg-white shadow-xl rounded-xl p-6 space-y-6"
+        className="bg-gray-300 shadow-xl rounded-xl p-6 space-y-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -56,7 +56,7 @@ const CreateGroup = () => {
             <input
               type="text"
               name="name"
-              placeholder="e.g., Nature Explorers"
+              placeholder=" Group name"
               required
               className="input input-bordered w-full"
             />
@@ -111,7 +111,7 @@ const CreateGroup = () => {
             <input
               type="number"
               name="members"
-              placeholder="e.g., 20"
+              placeholder=" 20"
               required
               className="input input-bordered w-full"
             />

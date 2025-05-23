@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 const HobbyDetails = () => {
   const today = new Date().toISOString().slice(0, 10);
   const hobbyData = useLoaderData();
+
   const {
     name,
     image,
@@ -64,16 +65,19 @@ const HobbyDetails = () => {
             </div>
           </div>
 
-          <p
-            className="tooltip flex items-center"
-            data-tip="Please log in to view the details."
-          >
-            <button
-              onClick={handleJoinGroup}
-              className="w-full py-3 mt-3 text-white font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all"
-            >
-              Join Group
-            </button>
+          <p className="tooltip flex items-center mt-4">
+            {today < date ? (
+              <button
+                onClick={handleJoinGroup}
+                className="w-full py-3 mt-3 text-white font-semibold rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all"
+              >
+                Join Group
+              </button>
+            ) : (
+              <span className="text-red-600 text-2xl border w-full text-center">
+                The group is no longer active.
+              </span>
+            )}
           </p>
         </div>
       </div>

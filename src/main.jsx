@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/update/:id',
-        element:<Update></Update>,
+        element:<PrivateRoutes><Update></Update></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>
 

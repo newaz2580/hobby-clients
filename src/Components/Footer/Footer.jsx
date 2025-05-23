@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10">
+    <footer className="bg-gray-900 text-gray-300 md:py-10">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
    
         <div>
@@ -26,9 +26,9 @@ const Footer = () => {
 
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
-          <p>Email: support@hobbyhub.com</p>
+          <p>Email: hobby@gmail.com</p>
           <p>Phone: +880 123-4567890</p>
-          <p>Address: 123 Hobby St, Creativity City</p>
+          <p>Address: 123 Hobby St,Creativity City</p>
         </div>
 
         <div>

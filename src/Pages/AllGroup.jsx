@@ -7,14 +7,14 @@ const AllGroup = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      <h2 className="text-4xl font-bold text-center text-purple-700 mb-6">
+      <h2 className="text text-4xl font-bold text-center text-purple-700 mb-6">
         All Hobby Groups
       </h2>
 
       <div className="overflow-x-auto shadow-2xl rounded-lg border border-purple-200">
-        <table className="table table-zebra w-full">
+        <table className="table w-full">
           <thead>
-            <tr className="text-white text-lg bg-gradient-to-r from-purple-800 to-indigo-800">
+            <tr className="text-black dark:text-white bg-amber-600 dark:bg-black">
               <th className="py-4 px-2">No</th>
               <th className="py-4 px-2">Name</th>
               <th className="py-4 px-2">Description</th>
@@ -28,7 +28,7 @@ const AllGroup = () => {
             {data.map((user, index) => (
               <tr
                 key={user._id}
-                className="hover:bg-indigo-50 transition duration-200 ease-in-out"
+                className=" transition duration-200 ease-in-out"
               >
                 <td className="text-center font-semibold">{index + 1}</td>
 
@@ -40,26 +40,26 @@ const AllGroup = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold text-indigo-800">
+                      <div className="text font-bold text-indigo-800 dark:text-cyan-300">
                         {user.name}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text text-xs text-indigo-800 dark:text-white">
                         {user.category}
                       </div>
                     </div>
                   </div>
                 </td>
 
-                <td className="text-sm text-indigo-600 font-medium">
+                <td className=" text-sm text-indigo-600 dark:text-white font-medium">
                   {user.description}
                 </td>
-                <td className="text-sm text-teal-700 font-medium">
+                <td className=" text-sm text-teal-700 dark:text-white font-medium">
                   {user.location}
                 </td>
-                <td className="text-center font-bold text-gray-800">
+                <td className="text-center font-bold text-teal-700 dark:text-white">
                   {user.members}
                 </td>
-                <td className="text-green-700 font-medium">{user.date}</td>
+                <td className=" text-green-700 font-medium dark:text-orange-400">{user.date}</td>
 
                 <td>
                   <Link to={`/hobbyDetails/${user._id}`}>

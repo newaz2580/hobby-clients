@@ -57,9 +57,9 @@ const MyGroup = () => {
             {/* head */}
             <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
               <tr className="text-xl">
-                <th className="hidden md:flex">No</th>
+                <th>No</th>
                 <th>Name</th>
-                <th className="hidden">Description</th>
+                <th >Description</th>
                 <th>Location</th>
                 <th>Email</th>
                 <th>Members</th>
@@ -92,14 +92,14 @@ const MyGroup = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="font-bold text-cyan-400 hidden md:flex">{user.description}</td>
-                  <td className="text-blue-600 font-bold py-5">{user.location}</td>
+                  <td className="font-bold text-cyan-400">{user.description}</td>
+                  <td className="text-blue-600 font-bold py-5 dark:text-green-700">{user.location}</td>
 
-                  <td className="font-bold py-4">{user.email}</td>
-                  <td>{user.members}</td>
-                  <td className="text-shadow-teal-600">{user.date}</td>
+                  <td className="font-bold py-4 dark:text-white">{user.email}</td>
+                  <td className="dark:text-white text-center">{user.members}</td>
+                  <td className="text-shadow-teal-600 dark:text-red-500">{user.date}</td>
 
-                  <th className="flex gap-2">
+                  <th className="flex gap-5 justify-center">
                     <Link to={`/update/${user._id}`}>
                       {" "}
                       <button className="btn btn-md bg-cyan-600 text-white text-md">

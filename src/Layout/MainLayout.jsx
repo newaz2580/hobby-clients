@@ -6,9 +6,9 @@ import Footer from "../Components/Footer/Footer";
 const MainLayout = () => {
   const { state } = useNavigate();
   return (
-    <div>
+    <div className="mainCard">
       <Header></Header>
-      <div className="min-h-[calc(100vh-120px)] mt-20">
+      <div className="min-h-[calc(100vh-120px)] pt-20 md:px-8">
         {state == "loading" ? <Loading></Loading> : <Outlet />}
       </div>
       <Footer></Footer>

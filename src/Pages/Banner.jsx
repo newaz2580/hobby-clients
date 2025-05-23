@@ -5,8 +5,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 const Banner = () => {
   return (
-    <>
-      <h2 className="text-center py-5 font-bold text-4xl mt-15 text-orange-600 ">
+    <div id="dark" className="text">
+      <h2 className="text-center py-5 font-bold text-4xl  text-orange-600 ">
  
         Hobby Group Slider
       </h2>
@@ -40,7 +40,7 @@ const Banner = () => {
           />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 
