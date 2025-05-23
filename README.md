@@ -4,7 +4,7 @@
 HobbyHub is a modern React web application designed to connect people through shared hobbies. It showcases advanced UI components, dynamic data, authentication features, and elegant styling using popular React libraries.
 
 # 🔗 Live URL
-Live: 
+Live: https://hobby-group-app.web.app
 
 # 🚀 Features
 ## 🎯 Three Swiper Sliders
