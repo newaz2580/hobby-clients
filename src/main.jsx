@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         index:true,
         Component:Home,
-        loader:()=>fetch('http://localhost:3000/hobby'),
+        loader:()=>fetch('https://hobby-group-organizer-server.vercel.app/hobby'),
         hydrateFallbackElement:<p>Loading.....</p>
       },
       {
@@ -48,26 +48,26 @@ const router = createBrowserRouter([
       },
       {
         path:'/hobbyDetails/:id',
-        loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
+        loader:({params})=>fetch(`https://hobby-group-organizer-server.vercel.app/hobby/${params.id}`),
         element:<PrivateRoutes><HobbyDetails></HobbyDetails></PrivateRoutes>,
          hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/allGroup',
-        loader:()=>fetch('http://localhost:3000/hobby'),
+        loader:()=>fetch('https://hobby-group-organizer-server.vercel.app/hobby'),
         element:<AllGroup></AllGroup>,
         hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/group',
         element:<PrivateRoutes><MyGroup></MyGroup></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/hobby'),
+        loader:()=>fetch('https://hobby-group-organizer-server.vercel.app/hobby'),
         hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'/update/:id',
         element:<PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/hobby/${params.id}`),
+        loader:({params})=>fetch(`https://hobby-group-organizer-server.vercel.app/hobby/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>
 
       }

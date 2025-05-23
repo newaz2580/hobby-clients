@@ -15,7 +15,7 @@ const CreateGroup = () => {
     const formData = new FormData(form);
     const newHobby = Object.fromEntries(formData.entries());
 
-    fetch("http://localhost:3000/hobby", {
+    fetch("https://hobby-group-organizer-server.vercel.app/hobby", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
