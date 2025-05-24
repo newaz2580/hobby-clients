@@ -75,7 +75,7 @@ const ContextProvider = ({ children }) => {
     theme,
   };
   return (
-    <div className="App" id={theme}>
+    <div>
       <AuthContext value={userInfo}>{children}</AuthContext>;
     </div>
   );

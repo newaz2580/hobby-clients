@@ -1,8 +1,5 @@
 import React from "react";
-import { FcViewDetails } from "react-icons/fc";
-import { IoMdPeople } from "react-icons/io";
-import { MdDateRange } from "react-icons/md";
-import { Link } from "react-router";
+
 import HobbyShowCard from "./HobbyShowCard";
 
 const HobbyCard = ({ displayData }) => {
