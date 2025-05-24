@@ -2,10 +2,12 @@ import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const { createUser,updateUser } = use(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShow,setIsShow]=useState(false)
   const navigate = useNavigate();
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -72,14 +74,23 @@ const SignUp = () => {
             placeholder="Email"
             required
           />
-          <label className="label">Password</label>
-          <input
-            type="password"
+          <div className="relative">
+            <label className="label">Password</label>
+            <input
+            type={isShow ? 'text':'password'}
             name="password"
             className="input w-full"
             placeholder="Password"
             required
           />
+          <button
+                type="button"
+                onClick={() => setIsShow(!isShow)}
+                className="absolute top-7 right-4 text-gray-600"
+              >
+                {isShow ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+              </button>
+          </div>
            <button
             type="submit"
             disabled={isLoading}
