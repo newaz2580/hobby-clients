@@ -8,42 +8,7 @@ import ReactSwitch from "react-switch";
 const Header = () => {
   const { user, logoutUser, toggleTheme, theme } = useContext(AuthContext);
   const navigate = useNavigate();
-  const links = (
-    <>
-      <li data-tip="Home section">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Home</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created All hobby Group here">
-        <NavLink
-          to="/allGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">All Groups</span>
-        </NavLink>
-      </li>
-      <li data-tip="Create new hobby Group by User">
-        <NavLink
-          to="/createGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Create Group</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created Group by User">
-        <NavLink
-          to="/group"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">My Groups</span>
-        </NavLink>
-      </li>
-    </>
-  );
+  
 
   const handleSignOut = () => {
     logoutUser()
@@ -84,7 +49,38 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box mt-3 w-52 p-2 shadow z-10"
           >
-            {links}
+           <li data-tip="Home section">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">Home</span>
+        </NavLink>
+      </li>
+      <li data-tip="Created All hobby Group here">
+        <NavLink
+          to="/allGroup"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">All Groups</span>
+        </NavLink>
+      </li>
+      <li data-tip="Create new hobby Group by User">
+        <NavLink
+          to="/createGroup"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">Create Group</span>
+        </NavLink>
+      </li>
+      <li data-tip="Created Group by User">
+        <NavLink
+          to="/group"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">My Groups</span>
+        </NavLink>
+      </li>
           </ul>
         </div>
 
@@ -101,16 +97,53 @@ const Header = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-5">{links}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-5">
+          <li data-tip="Home section">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">Home</span>
+        </NavLink>
+      </li>
+      <li data-tip="Created All hobby Group here">
+        <NavLink
+          to="/allGroup"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">All Groups</span>
+        </NavLink>
+      </li>
+      <li data-tip="Create new hobby Group by User">
+        <NavLink
+          to="/createGroup"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">Create Group</span>
+        </NavLink>
+      </li>
+      <li data-tip="Created Group by User">
+        <NavLink
+          to="/group"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">My Groups</span>
+        </NavLink>
+      </li>
+          </ul>
       </div>
        
       <div className="navbar-end gap-3">
+
+        {/* <div style={{display: "block !important", width: '40px', height: '40px', background: 'red', content: " "}}></div>
+
+        <img className="w-10 h-10" src={user?.photoURL} alt={user?.displayName || "User"} /> */}
         {user && (
           <div className="relative group avatar">
-            <div className="w-10 rounded-full ring ring-yellow-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
+            <div className="w-[40px] rounded-full ring ring-yellow-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
               <img src={user?.photoURL} alt={user?.displayName || "User"} />
             </div>
-            <div className="absolute top-1 right-full mr-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-1 right-0 mr-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="relative bg-pink-950 text-white text-xl px-4 py-2 rounded-4xl shadow-lg whitespace-nowrap">
                 {user.displayName}
                 <div className="absolute top-2 right-[-6px] w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-black"></div>
@@ -122,7 +155,7 @@ const Header = () => {
         {user ? (
           <button
             onClick={handleSignOut}
-            className="btn btn-primary lg:px-6 px-4 text-2xl lg:py-7 py-2 rounded-4xl"
+            className="btn btn-primary px-2 lg:px-6  text-2xl lg:py-7 py-2 rounded-4xl"
           >
             Sign Out
           </button>
