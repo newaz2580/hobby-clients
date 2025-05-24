@@ -27,7 +27,7 @@ const Header = () => {
         <div className="dropdown">
           <button
             tabIndex={0}
-            className="btn btn-ghost lg:hidden"
+            className=" btn-ghost lg:hidden"
             aria-label="Open menu"
           >
             <svg
