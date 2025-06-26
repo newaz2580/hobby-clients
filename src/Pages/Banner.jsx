@@ -7,8 +7,7 @@ const Banner = () => {
   return (
     <div id="dark" className="text">
       <h2 className="text-center py-5 font-bold text-4xl  text-orange-600 ">
- 
-        Hobby Group Slider
+        Hobby Group 
       </h2>
       <Swiper
         modules={[Autoplay, Pagination]}
