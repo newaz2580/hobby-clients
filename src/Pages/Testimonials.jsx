@@ -47,7 +47,24 @@ const testimonials = [
     rating: 5,
     date: "May 1, 2025",
   },
+  {
+    name: "Nusrat Jahan",
+    feedback:
+      "The local cooking class I joined through HobbyHub has improved my skills so much!",
+    hobby: "Cooking",
+    rating: 5,
+    date: "April 28, 2025",
+  },
+  {
+    name: "Tariq Mahmud",
+    feedback:
+      "As a tech enthusiast, the coding meetups helped me learn new frameworks and build projects.",
+    hobby: "Coding",
+    rating: 5,
+    date: "April 26, 2025",
+  },
 ];
+
 
 const StarRating = ({ rating }) => {
   const totalStars = 5;
@@ -61,21 +78,21 @@ const StarRating = ({ rating }) => {
 };
 
 const Testimonials = () => (
-  <section id="dark" className=" py-12 mainCard">
+  <section id="dark" className=" py-5 mainCard">
     <div className="w-full mx-auto px-4 text-center">
-      <h2 className="text-4xl font-extrabold text-gray-800 dark:text-white mb-3">
-        Hear From Our <span className="text-blue-600">Happy Members</span>
+      <h2 className="font-bold text-4xl text-gray-800 dark:text-white mb-3">
+        Hear From Our <span className="text-blue-800">Happy Members</span>
       </h2>
       <p className="text-lg text-gray-600 dark:text-white mb-10">
         Real stories from people who found joy, friends, and inspiration through
         HobbyHub.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {testimonials.map((testimonial, i) => (
           <div
             id="light"
             key={i}
-            className="mainCark bg-gradient-to-r from-cyan-300 to-purple-500 shadow-lg rounded-2xl p-6 text-left transition transform hover:-translate-y-1 hover:shadow-xl"
+            className="mainCark bg-white shadow-lg rounded-2xl p-6 text-left transition transform hover:-translate-y-1 hover:shadow-xl"
           >
             <p className=" text-gray-700 mb-3">“{testimonial.feedback}”</p>
             <StarRating rating={testimonial.rating} />

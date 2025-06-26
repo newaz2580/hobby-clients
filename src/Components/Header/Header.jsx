@@ -81,12 +81,21 @@ const Header = () => {
           <span className="text-xl font-semibold">My Groups</span>
         </NavLink>
       </li>
+
+      <li data-tip="About">
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">About</span>
+        </NavLink>
+      </li>
           </ul>
         </div>
 
         <Link
           to="/"
-          className="text-shadow-indigo-700 font-extrabold text-2xl hidden md:flex"
+          className="text-shadow-indigo-700 text-orange-500 font-extrabold text-2xl hidden md:flex"
         >
           HobbyHub
         </Link>
@@ -128,6 +137,22 @@ const Header = () => {
           className={({ isActive }) => (isActive ? "font-bold underline" : "")}
         >
           <span className="text-xl font-semibold">My Groups</span>
+        </NavLink>
+      </li>
+       <li data-tip="About">
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">About</span>
+        </NavLink>
+      </li>
+      <li data-tip="Faq">
+        <NavLink
+          to="/faq"
+          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
+        >
+          <span className="text-xl font-semibold">Faq</span>
         </NavLink>
       </li>
           </ul>

@@ -19,6 +19,8 @@ import ErrorPage from './Pages/ErrorPage.jsx';
 import Update from './Pages/Update.jsx';
 import { ToastContainer } from 'react-toastify';
 import Loading from './Pages/Loading.jsx';
+import About from './Pages/About/About.jsx';
+import Faq from './Pages/Faq.jsx';
 
 
 const router = createBrowserRouter([
@@ -69,6 +71,14 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`https://hobby-group-organizer-server.vercel.app/hobby/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>
 
+      },
+      {
+        path:'/about',
+        Component:About
+      },
+      {
+        path:'/faq',
+        Component:Faq
       }
     ]
   },

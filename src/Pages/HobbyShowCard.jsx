@@ -29,12 +29,7 @@ const HobbyShowCard = ({hobby}) => {
             </span>
           </div>
 
-          <div className="flex justify-center items-center gap-2 text-sm text-gray-600">
-            <IoMdPeople className="text text-indigo-500" />
-            <span className="text text-gray-600 dark:text-white">
-              {hobby.members} Members
-            </span>
-          </div>
+          
 
           <Link to={`/hobbyDetails/${hobby._id}`}>
             <button className="btn btn-primary w-full mt-2 rounded-2xl">

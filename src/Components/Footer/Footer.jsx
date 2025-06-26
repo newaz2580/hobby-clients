@@ -6,6 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
    
         <div>
+           <img className="h-16 w-16 rounded-full" src={`https://i.ibb.co/ksmN36sk/Whats-App-Image-2025-06-26-at-9-48-51-PM.jpg`} alt="" />
           <h3 className="text-2xl font-bold mb-4 text-orange-500">HobbyHub</h3>
           <p className="text-sm">
             Connecting hobby enthusiasts through local groups and events to share passions and make friends.

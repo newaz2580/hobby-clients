@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 const Banner = () => {
   return (
     <div id="dark" className="text">
-      <h2 className="text-center py-5 font-bold text-4xl  text-orange-600 ">
+      <h2 className="text-center py-5 font-bold text-4xl  text-blue-800 ">
         Hobby Group 
       </h2>
       <Swiper
@@ -21,21 +21,21 @@ const Banner = () => {
           <img
             src="https://i.ibb.co/7JXzwQ9Q/fishing.webp"
             alt="Slide 1"
-            className="w-full lg:h-[650px] object-fit rounded-lg"
+            className="w-full lg:h-100  rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="https://i.ibb.co/DgQWF3fr/travel.webp"
             alt="Slide 2"
-            className="w-full lg:h-[650px] object-fit rounded-lg"
+            className="w-full lg:h-100 object-fill rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src="https://i.ibb.co/k2Zh5nYD/cooking-hobby.webp"
             alt="Slide 3"
-            className="w-full lg:h-[650px] object-fit rounded-lg"
+            className="w-full lg:h-100  rounded-lg"
           />
         </SwiperSlide>
       </Swiper>
