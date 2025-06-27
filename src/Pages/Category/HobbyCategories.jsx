@@ -73,20 +73,20 @@ const HobbyCategories = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section className="max-w-full mx-auto px-4 py-5">
-      <h2 className="text-4xl font-bold text-center mb-10 text-primary">
+    <section className="max-w-full mx-auto  py-5">
+      <h2 className="text-4xl font-bold text-center mb-10 text-primary dark:text-white">
         Explore Hobby Categories
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {categories.map((cat) => (
           <div
             key={cat.id}
             onClick={() => setSelected(cat)}
-            className="cursor-pointer flex flex-col items-center p-6 bg-base-100 rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 text-center"
+            className="cursor-pointer flex flex-col items-center p-6 bg-white dark:bg-gray-700  rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 text-center"
           >
             <div className="mb-4">{cat.icon}</div>
             <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{cat.name}</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{cat.description}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-200">{cat.description}</p>
           </div>
         ))}
       </div>

@@ -41,7 +41,7 @@ const AllGroup = () => {
         {sortedData.map((group) => (
           <div
             key={group._id}
-            className="card bg-base-100 shadow-xl border border-purple-200 hover:shadow-2xl transition-all"
+            className="card bg-base-100 dark:bg-gray-800 shadow-xl border border-purple-200 hover:shadow-2xl transition-all"
           >
             <figure>
               <img
@@ -51,8 +51,8 @@ const AllGroup = () => {
               />
             </figure>
             <div className="card-body">
-              <h3 className="text-xl font-bold text-indigo-800">{group.name}</h3>
-              <p className="text-sm text-gray-600 line-clamp-3">{group.description}</p>
+              <h3 className="text-xl font-bold text-indigo-800 dark:text-white">{group.name}</h3>
+              <p className="text-sm text-gray-600 line-clamp-3 dark:text-white">{group.description}</p>
               <div className=" space-y-1 text-sm text-gray-700 dark:text-gray-300">
                 <p>
                   <span className="font-semibold text-teal-700">📅 Date:</span>{" "}

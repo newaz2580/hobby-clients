@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const HobbyShowCard = ({hobby}) => {
     return (
         <div>
-             <div className="mainCard card bg-base-100 dark:bg-gray-800 my-5  w-full h-96 shadow-xl rounded-xl p-2 overflow-hidden hover:shadow-2xl transition">
+             <div className="mainCard card bg-base-100 dark:bg-gray-700 my-5  w-full h-96 shadow-xl rounded-xl p-2 overflow-hidden hover:shadow-2xl transition">
         <figure>
           <img
             className="w-full h-48 object-cover  rounded-xl"

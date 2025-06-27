@@ -8,7 +8,6 @@ import ReactSwitch from "react-switch";
 const Header = () => {
   const { user, logoutUser, toggleTheme, theme } = useContext(AuthContext);
   const navigate = useNavigate();
-  
 
   const handleSignOut = () => {
     logoutUser()
@@ -49,50 +48,71 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 text-black rounded-box mt-3 w-52 p-2 shadow z-10"
           >
-           <li data-tip="Home section">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Home</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created All hobby Group here">
-        <NavLink
-          to="/allGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">All Groups</span>
-        </NavLink>
-      </li>
-      <li data-tip="Create new hobby Group by User">
-        <NavLink
-          to="/createGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Create Group</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created Group by User">
-        <NavLink
-          to="/group"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">My Groups</span>
-        </NavLink>
-      </li>
+            <li data-tip="Home section">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <span className="text-xl font-semibold">Home</span>
+              </NavLink>
+            </li>
+            <li data-tip="Created All hobby Group here">
+              <NavLink
+                to="/allGroup"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <span className="text-xl font-semibold">All Groups</span>
+              </NavLink>
+            </li>
 
-      <li data-tip="About">
-        <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">About</span>
-        </NavLink>
-      </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashBoard"
+                    className={({ isActive }) =>
+                      isActive ? "font-bold underline" : ""
+                    }
+                  >
+                    <span className="text-xl font-semibold">Dashboard</span>
+                  </NavLink>
+                </li>
+              </>
+            )}
+            <li data-tip="About">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <span className="text-xl font-semibold">About</span>
+              </NavLink>
+            </li>
+
+            <li data-tip="Faq">
+              <NavLink
+                to="/faq"
+                className={({ isActive }) =>
+                  isActive ? "font-bold underline" : ""
+                }
+              >
+                <span className="text-xl font-semibold">Faq</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
-
+        <Link to="/">
+          <img
+            className="h-12 w-12 rounded-full"
+            src={`https://i.ibb.co/ksmN36sk/Whats-App-Image-2025-06-26-at-9-48-51-PM.jpg`}
+            alt=""
+          />
+        </Link>
         <Link
           to="/"
           className="text-shadow-indigo-700 text-orange-500 font-extrabold text-2xl hidden md:flex"
@@ -106,65 +126,67 @@ const Header = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-5">
+        <ul className="menu menu-horizontal px-1 space-x-3">
           <li data-tip="Home section">
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Home</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created All hobby Group here">
-        <NavLink
-          to="/allGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">All Groups</span>
-        </NavLink>
-      </li>
-      <li data-tip="Create new hobby Group by User">
-        <NavLink
-          to="/createGroup"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Create Group</span>
-        </NavLink>
-      </li>
-      <li data-tip="Created Group by User">
-        <NavLink
-          to="/group"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">My Groups</span>
-        </NavLink>
-      </li>
-       <li data-tip="About">
-        <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">About</span>
-        </NavLink>
-      </li>
-      <li data-tip="Faq">
-        <NavLink
-          to="/faq"
-          className={({ isActive }) => (isActive ? "font-bold underline" : "")}
-        >
-          <span className="text-xl font-semibold">Faq</span>
-        </NavLink>
-      </li>
-          </ul>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "font-bold underline" : ""
+              }
+            >
+              <span className="text-xl font-semibold">Home</span>
+            </NavLink>
+          </li>
+          <li data-tip="Created All hobby Group here">
+            <NavLink
+              to="/allGroup"
+              className={({ isActive }) =>
+                isActive ? "font-bold underline" : ""
+              }
+            >
+              <span className="text-xl font-semibold">All Groups</span>
+            </NavLink>
+          </li>
+          {user && (
+            <>
+              <li>
+                <NavLink
+                  to="/dashBoard"
+                  className={({ isActive }) =>
+                    isActive ? "font-bold underline" : ""
+                  }
+                >
+                  <span className="text-xl font-semibold">Dashboard</span>
+                </NavLink>
+              </li>
+            </>
+          )}
+          <li data-tip="About">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "font-bold underline" : ""
+              }
+            >
+              <span className="text-xl font-semibold">About</span>
+            </NavLink>
+          </li>
+          <li data-tip="Faq">
+            <NavLink
+              to="/faq"
+              className={({ isActive }) =>
+                isActive ? "font-bold underline" : ""
+              }
+            >
+              <span className="text-xl font-semibold">Faq</span>
+            </NavLink>
+          </li>
+        </ul>
       </div>
-       
-      <div className="navbar-end gap-3">
 
-        {/* <div style={{display: "block !important", width: '40px', height: '40px', background: 'red', content: " "}}></div>
-
-        <img className="w-10 h-10" src={user?.photoURL} alt={user?.displayName || "User"} /> */}
+      <div className="navbar-end gap-3 ">
         {user && (
-          <div className="relative group avatar">
+          <div className="relative group avatar hidden md:flex">
             <div className="w-[40px] rounded-full ring ring-yellow-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
               <img src={user?.photoURL} alt={user?.displayName || "User"} />
             </div>
@@ -176,23 +198,23 @@ const Header = () => {
             </div>
           </div>
         )}
-       
+
         {user ? (
           <button
             onClick={handleSignOut}
-            className="btn btn-primary px-2 lg:px-6  text-2xl lg:py-7 py-2 rounded-4xl"
+            className="btn btn-primary px-2 lg:px-4  text-xl lg:py-5 py-2 rounded-4xl"
           >
             Sign Out
           </button>
         ) : (
           <Link
             to="/login"
-            className="btn btn-primary px-4 lg:px-10 text-2xl py-3 lg:py-7 rounded-4xl"
+            className="btn btn-primary px-2 lg:px-4  text-xl lg:py-5 py-2 rounded-4xl"
           >
             Login
           </Link>
         )}
-         <ReactSwitch
+        <ReactSwitch
           onChange={toggleTheme}
           checked={theme == "dark"}
         ></ReactSwitch>

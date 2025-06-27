@@ -1,8 +1,8 @@
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 md:py-10">
+    <footer className="bg-gray-800 text-gray-300 md:py-10">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
    
         <div>
@@ -35,14 +35,14 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Follow Us</h3>
           <div className="flex space-x-4 text-gray-400 text-xl">
-            <a href="#" className="hover:text-blue-600 transition"><FaFacebookF /></a>
-            <a href="#" className="hover:text-blue-400 transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-pink-500 transition"><FaInstagram /></a>
+            <a href="https://web.facebook.com/shahnewaz.ahammed" target="_blank" className="hover:text-blue-600 transition"><FaFacebookF /></a>
+            <a href="https://github.com/newaz2580" target="_blank" className="hover:text-blue-400 transition"><FaGithub /></a>
+            <a href="https://www.instagram.com/blue_bird_himu/" target="_blank" className="hover:text-pink-500 transition"><FaInstagram /></a>
           </div>
         </div>
       </div>
 
-      <div className="text-center text-gray-500 text-sm mt-8">
+      <div className="text-center text-gray-700 dark:text-white text-sm mt-8">
         &copy; {new Date().getFullYear()} HobbyHub. All rights reserved.
       </div>
     </footer>

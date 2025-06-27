@@ -52,11 +52,11 @@ const MyGroup = () => {
       
        {myHobbies.length > 0 ? <><div className="shadow-2xl">
         
-          <h2 className="text-4xl font-bold text-center text-purple-700 mb-6 mt-3">My Hobby Groups</h2>
+          <h2 className="text-4xl font-bold text-center text-black mb-6 mt-3">My Hobby Groups</h2>
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
-            <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <thead className="bg-blue-600 dark:bg-gray-800 text-white">
               <tr className="text-xl">
                 <th>No</th>
                 <th>Name</th>
@@ -84,7 +84,7 @@ const MyGroup = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold text-blue-500">
+                        <div className="font-bold text-gray-800">
                           {user.name}
                         </div>
                         <div className="text-sm opacity-50">
@@ -93,17 +93,17 @@ const MyGroup = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="font-bold text-cyan-400">{user.description}</td>
-                  <td className="text-blue-600 font-bold py-5 dark:text-green-700">{user.location}</td>
+                  <td className="font-bold text-gray-800">{user.description}</td>
+                  <td className="text-gray-800 font-bold py-5 dark:text-green-700">{user.location}</td>
 
-                  <td className="font-bold py-4 dark:text-white">{user.email}</td>
-                  <td className="dark:text-white text-center">{user.members}</td>
+                  <td className="font-bold py-4">{user.email}</td>
+                  <td className=" text-center">{user.members}</td>
                   <td className="text-shadow-teal-600 dark:text-red-500">{user.date}</td>
 
                   <th className="flex gap-5 justify-center">
                     <Link to={`/update/${user._id}`}>
                       {" "}
-                      <button className="btn btn-md bg-cyan-600 text-white text-md">
+                      <button className="btn outline  text-black text-md">
                         <CiEdit size={18} />
                         Update
                       </button>

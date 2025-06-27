@@ -16,12 +16,12 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="bg-base-200 dark:bg-gray-900 py-10 px-6 rounded-xl my-10 shadow-md">
-      <h2 className="text-3xl font-bold text-center mb-4">📬 Subscribe to Our Newsletter</h2>
+    <div className="bg-base-200 dark:bg-gray-800 py-10 px-6 rounded-xl my-10 shadow-md">
+      <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">📬 Subscribe to Our Newsletter</h2>
       <p className="text-center mb-2 text-gray-600 dark:text-gray-300">
         Stay updated with hobby meetups, group events, new blogs, and exclusive offers!
       </p>
-      <p className="text-center mb-6 text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-center mb-6 text-sm text-gray-500 dark:text-gray-100">
         We send only 1 email per week. No spam, ever.
       </p>
 

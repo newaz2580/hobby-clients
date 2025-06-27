@@ -78,10 +78,10 @@ const StarRating = ({ rating }) => {
 };
 
 const Testimonials = () => (
-  <section id="dark" className=" py-5 mainCard">
-    <div className="w-full mx-auto px-4 text-center">
+  <section  className=" py-5 ">
+    <div className="w-full mx-auto  text-center">
       <h2 className="font-bold text-4xl text-gray-800 dark:text-white mb-3">
-        Hear From Our <span className="text-blue-800">Happy Members</span>
+        Here From Our <span className="text-blue-800">Happy Members</span>
       </h2>
       <p className="text-lg text-gray-600 dark:text-white mb-10">
         Real stories from people who found joy, friends, and inspiration through
@@ -92,18 +92,18 @@ const Testimonials = () => (
           <div
             id="light"
             key={i}
-            className="mainCark bg-white shadow-lg rounded-2xl p-6 text-left transition transform hover:-translate-y-1 hover:shadow-xl"
+            className=" bg-white dark:bg-gray-700 dark:text-white shadow-lg rounded-2xl p-6 text-left transition transform hover:-translate-y-1 hover:shadow-xl"
           >
-            <p className=" text-gray-700 mb-3">“{testimonial.feedback}”</p>
+            <p className=" text-gray-700 mb-3 dark:text-white">“{testimonial.feedback}”</p>
             <StarRating rating={testimonial.rating} />
             <div className="mt-4">
-              <h4 className="font-bold text-lg text-gray-800">
+              <h4 className="font-bold text-lg text-gray-800 dark:text-white">
                 {testimonial.name}
               </h4>
               <p className="text-sm text-gray-500">
                 {testimonial.hobby} Enthusiast
               </p>
-              <p className="text-xs text-gray-400 mt-1">{testimonial.date}</p>
+              <p className="text-xs text-gray-400 mt-1 dark:text-white">{testimonial.date}</p>
             </div>
           </div>
         ))}

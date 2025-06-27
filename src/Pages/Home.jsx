@@ -18,7 +18,7 @@ const Home = () => {
   }, [hobbyData]);
 
   return (
-    <div className="p-1 text-black rounded-xl bg-gray-200">
+    <div className="p-1 text-black rounded-xl bg-gray-200 dark:bg-gray-800">
       <Banner></Banner>
       <HobbyCard displayData={displayData}></HobbyCard>
       <Testimonials></Testimonials>
