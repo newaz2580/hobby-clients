@@ -17,13 +17,13 @@ const Banner = () => {
         autoplay={{ delay: 2500 }}
         pagination={{ clickable: true }}
         loop={true}
-        className=" md:h-[400px]  rounded-lg"
+        className=" h-[400px] rounded-lg"
       >
         <SwiperSlide>
           <img
             src="https://i.ibb.co/vCPL0xtB/jonathan-zerger-yzz-Jbq-Q1-O-Y-unsplash.jpg"
             alt="Slide 1"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full  h-full object-cover rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
